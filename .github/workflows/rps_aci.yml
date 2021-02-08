@@ -30,7 +30,9 @@ jobs:
             AZURE_SUBSCRIPTION_ID: '${{ secrets.AZURE_SUBSCRIPTION_ID }}'
             
         - name: "Compose Up"
-          run: docker compose up -c acicontext
+          run: |
+            cd dapr
+            docker compose up -c acicontext
           env:
             IMAGE_NAME: 'fiffi/rps.web:latest'
             DOCKER_REGISTRY: 'ghcr.io/perokvist'
