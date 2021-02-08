@@ -11,7 +11,12 @@ jobs:
         
         - name: Install Docker Compose CLI
           run: curl -L https://raw.githubusercontent.com/docker/compose-cli/main/scripts/install/install_linux.sh | sh
-           
+       
+        - name: 'Login via Azure CLI'
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+       
         - name: "Create an aci context"
           run: 'docker context create aci --subscription-id $AZURE_SUBSCRIPTION_ID --resource-group ${{ secrets.RESOURCE_GROUP }} acicontext'
           env:
