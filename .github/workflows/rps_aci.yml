@@ -1,0 +1,27 @@
+on: [push]
+name: push_rps_to_aci
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+        # checkout the repo
+        - name: 'Checkout GitHub Action'
+          uses: actions/checkout@master
+        
+        - name: Install Docker Compose CLI
+          run: curl -L https://raw.githubusercontent.com/docker/compose-cli/main/scripts/install/install_linux.sh | sh
+           
+        - name: "Create an aci context"
+          run: 'docker context create aci --subscription-id $AZURE_SUBSCRIPTION_ID --resource-group ${{ secrets.RESOURCE_GROUP }} acicontext'
+          env:
+            AZURE_SUBSCRIPTION_ID: '${{ secrets.AZURE_SUBSCRIPTION_ID }}'
+            
+        - name: "Compose Up"
+          run: docker compose up -c acicontext
+          env:
+            IMAGE_NAME: 'daprpush:${{ github.sha }}'
+            DOCKER_REGISTRY: '${{ secrets.REGISTRY_LOGIN_SERVER }}'
+            #APPINSIGHTS_INSTRUMENTATIONKEY: '${{ secrets.APPINSIGHTS_INSTRUMENTATIONKEY }}'  
+
+ 
