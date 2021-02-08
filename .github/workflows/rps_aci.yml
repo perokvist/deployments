@@ -20,8 +20,10 @@ jobs:
         - name: "Compose Up"
           run: docker compose up -c acicontext
           env:
-            IMAGE_NAME: 'daprpush:${{ github.sha }}'
-            DOCKER_REGISTRY: '${{ secrets.REGISTRY_LOGIN_SERVER }}'
+            IMAGE_NAME: 'fiffi/rps.web:latest'
+            DOCKER_REGISTRY: 'ghcr.io/perokvist'
+            #IMAGE_NAME: 'daprpush:${{ github.sha }}'
+            #DOCKER_REGISTRY: '${{ secrets.REGISTRY_LOGIN_SERVER }}'
             #APPINSIGHTS_INSTRUMENTATIONKEY: '${{ secrets.APPINSIGHTS_INSTRUMENTATIONKEY }}'  
 
  
