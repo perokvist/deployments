@@ -13,8 +13,6 @@ services:
       - "50001:50001" # Dapr instances communicate over gRPC so we need to expose the gRPC port
     depends_on:
       - placement
-    networks:
-      - dapr
   dapr:
     image: "daprio/daprd:edge"
     command: [
@@ -42,8 +40,7 @@ services:
     command: ["./placement", "-port", "50006"]
     ports:
       - "50006:50006"
-    networks:
-      - dapr
+    network_mode: "service:app"
 volumes:
   mydata:
     driver: azure_file
