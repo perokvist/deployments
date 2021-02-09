@@ -1,6 +1,6 @@
 name: push rps to web apps for containers
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   build:
