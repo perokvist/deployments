@@ -9,14 +9,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: azure/webapps-deploy@v2 #https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=publish-profile
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - uses: azure/webapps-deploy@v2 #https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action
       with:
         app-name: 'rps-web'
         images: 'ghcr.io/perokvist/fiffi/rps.web:latest'
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         configuration-file: .\dapr\docker-compose
       env:
         IMAGE_NAME: 'fiffi/rps.web:latest'
         DOCKER_REGISTRY: 'ghcr.io/perokvist'
         STORAGE_ACCOUNT_NAME: 'daprweb'
+        
+    - name: Azure logout
+      run: |
+        az logout
    
