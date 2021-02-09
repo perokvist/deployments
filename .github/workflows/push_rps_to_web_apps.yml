@@ -17,7 +17,9 @@ jobs:
     - uses: azure/webapps-deploy@v2 #https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action
       with:
         app-name: 'rps-web'
-        images: 'ghcr.io/perokvist/fiffi/rps.web:latest'
+        images: | 
+          'ghcr.io/perokvist/fiffi/rps.web:latest' 
+          'daprio/daprd:edge'
         configuration-file: .\dapr\docker-compose
       env:
         IMAGE_NAME: 'fiffi/rps.web:latest'
