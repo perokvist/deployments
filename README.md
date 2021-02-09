@@ -26,3 +26,13 @@ The docker-compose file in the "dapr" folder could be use in a github action, bu
 #### Options
 - Deploy with compose in github action
 - Configure compose file in deployment center and use web hook to deploy.
+
+### Resources
+
+- [Configure a GitHub action to create a container instance](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-github-action)
+- [Setting Up Cloud Deployments Using Docker, Azure and Github Actions](https://www.docker.com/blog/setting-up-cloud-deployments-using-docker-azure-and-github-actions/)
+- [Dapr Sample - Hello docker compose](https://github.com/dapr/samples/tree/master/hello-docker-compose)
+- [Dapr demos](https://github.com/mchmarny/dapr-demos)
+- [Dapr Web Push Sample](https://github.com/perokvist/Dapr.WebPush)
+- [Dapr docs - self hosted with docker](https://v1-rc3.docs.dapr.io/operations/hosting/self-hosted/self-hosted-with-docker/#run-using-docker-compose)
+
