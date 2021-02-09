@@ -20,7 +20,7 @@ jobs:
         images: | 
           'ghcr.io/perokvist/fiffi/rps.web:latest' 
           'daprio/daprd:edge'
-        configuration-file: /dapr/
+        configuration-file: /dapr/docker-compose.yml
       env:
         IMAGE_NAME: 'fiffi/rps.web:latest'
         DOCKER_REGISTRY: 'ghcr.io/perokvist'
