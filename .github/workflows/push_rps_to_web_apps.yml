@@ -11,7 +11,7 @@ jobs:
 
     - uses: azure/webapps-deploy@v2 #https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=publish-profile
       with:
-        app-name: 'rps'
+        app-name: 'rps-web'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         configuration-file: .\dapr\docker-compose
       env:
