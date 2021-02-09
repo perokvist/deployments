@@ -1,0 +1,18 @@
+receivers:
+  opencensus:
+      endpoint: 0.0.0.0:55678
+exporters:
+  azuremonitor:
+  azuremonitor/2:
+    endpoint: "https://dc.services.visualstudio.com/v2/track"
+    instrumentation_key: "yourKey"
+    maxbatchsize: 100
+    maxbatchinterval: 10s
+service:
+  pipelines:
+    traces:
+      receivers: [opencensus]
+      exporters: [azuremonitor/2]
+
+
+
