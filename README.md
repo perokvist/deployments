@@ -19,9 +19,21 @@ The docker-compose file in the "dapr" folder could be used with the "azure/webap
 
 > [Environment variables in the compose file doesn't seem to be supported](https://stackoverflow.com/questions/64760074/azure-web-app-service-for-linux-containers-not-picking-up-environment-variables), and will need to be manually replaced to fit the scenario.
 
+#### Storage
+In the compose file, Azure File Storage is used. It might be possible to use the host storage when running web apps.
+
 ### Azure Container Instances
 
 The docker-compose file in the "dapr" folder could be use in a github action, but not as straight forward as for web apps.
+
+#### Options
+- Deploy with compose in github action
+- Configure compose file in deployment center and use web hook to deploy.
+
+### Azure Functions
+The support for running functions in a custom container, is basicly running functions in app service, but based on an functions runtime image. The compose support is the same as in app service, but now with access to the [dapr integration](https://cloudblogs.microsoft.com/opensource/2020/07/01/announcing-azure-functions-extension-for-dapr/).
+
+The [dapr functions extension](https://github.com/dapr/azure-functions-extension) adds access to dapr triggers and bindings.
 
 #### Options
 - Deploy with compose in github action
