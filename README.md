@@ -39,6 +39,10 @@ The [dapr functions extension](https://github.com/dapr/azure-functions-extension
 - Deploy with compose in github action
 - Configure compose file in deployment center and use web hook to deploy.
 
+### Logic Apps
+
+Since the new [Logic Apps runtime](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/new-logic-apps-runtime-performance-and-developer-improvements/ba-p/1645335) let you run workflows anywhere containerized, it could run in all mentioned services. With the [dapr workflows](https://cloudblogs.microsoft.com/opensource/2020/05/26/announcing-cloud-native-workflows-dapr-logic-apps/) this allows you to utilize dapr service invocation and binding triggers in [workflows](https://github.com/dapr/workflows).
+
 ### Resources
 
 - [Configure a GitHub action to create a container instance](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-github-action)
@@ -47,4 +51,5 @@ The [dapr functions extension](https://github.com/dapr/azure-functions-extension
 - [Dapr demos](https://github.com/mchmarny/dapr-demos)
 - [Dapr Web Push Sample](https://github.com/perokvist/Dapr.WebPush)
 - [Dapr docs - self hosted with docker](https://v1-rc3.docs.dapr.io/operations/hosting/self-hosted/self-hosted-with-docker/#run-using-docker-compose)
+- [Units of deployment - a brief look into the future, guided by dapr](https://perokvist.github.io/event-driven-architecture/azure_containers.html)
 
