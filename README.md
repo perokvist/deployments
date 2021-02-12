@@ -5,6 +5,8 @@ A collection of github action utils
 
 > Exprimental compose files for single app use of dapr.
 
+> WiP - see issues for status
+
 ### Azure Web Apps for Containers
 
 The docker-compose file in the "dapr" folder could be used with the "azure/webapps-deploy@v2" github action. The ENV variables set in the github action seems to not be in context. The app configuration settings sould be in scope.

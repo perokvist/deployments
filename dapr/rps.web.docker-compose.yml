@@ -1,0 +1,49 @@
+version: '3.4'
+
+# ${DOCKER_REGISTRY}
+# ${IMAGE_NAME}
+# ${STORAGE_ACCOUNT_NAME}
+
+services:
+  app:
+    image: ghcr.io/perokvist/fiffi/rps.web:latest  #${DOCKER_REGISTRY}/${IMAGE_NAME}
+    environment:
+        - APPINSIGHTS_INSTRUMENTATIONKEY
+    ports:
+      - "50001:50001" # Dapr instances communicate over gRPC so we need to expose the gRPC port
+    depends_on:
+      - placement
+  dapr:
+    image: "daprio/daprd:edge"
+    command: [
+     "./daprd",
+     "-app-id", "app",
+     "-app-port", "80",
+     "-config", "/mount/config/collector_config.yaml",
+     "-components-path", "/mount/components",
+     "-placement-host-address", "placement:50006" # Dapr's placement service can be reach via the docker DNS entry
+     ]
+    volumes:
+        - mydata:/mount
+    depends_on:
+      - app
+    network_mode: "service:app"
+  otel:
+    image: otel/opentelemetry-collector-contrib-dev:latest
+    command: ["./otelcontribcol",
+     "--config=/mount/config/otel-collector-config.yaml"]
+    volumes:
+      - mydata:/mount
+    network_mode: "service:app"
+  placement:
+    image: "daprio/dapr"
+    command: ["./placement", "-port", "50006"]
+    ports:
+      - "50006:50006"
+    network_mode: "service:app"
+volumes:
+  mydata:
+    driver: azure_file
+    driver_opts:
+      share_name: dapr
+      storage_account_name: daprweb #${STORAGE_ACCOUNT_NAME}
