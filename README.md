@@ -39,6 +39,10 @@ The [dapr functions extension](https://github.com/dapr/azure-functions-extension
 - Deploy with compose in github action
 - Configure compose file in deployment center and use web hook to deploy.
 
+### Logging
+When running on App Service with Linux containers, yoou need to enable logging - 
+[Enable logging for linux containers](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs#enable-application-logging-linuxcontainer)
+
 ### Logic Apps
 
 Since the new [Logic Apps runtime](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/new-logic-apps-runtime-performance-and-developer-improvements/ba-p/1645335) let you run workflows anywhere containerized, it could run in all mentioned services. With the [dapr workflows](https://cloudblogs.microsoft.com/opensource/2020/05/26/announcing-cloud-native-workflows-dapr-logic-apps/) this allows you to utilize dapr service invocation and binding triggers in [workflows](https://github.com/dapr/workflows).
