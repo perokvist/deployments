@@ -3,9 +3,11 @@ A collection of github action utils
 
 ## dapr
 
-> Exprimental compose files for single app use of dapr.
+Exprimental compose files for single app use of dapr.
 
-> WiP - see issues for status
+>There is two options, web apps (for containers) and continer instances (ACI). Web Apps of course would be more attractive for web workload with auto-scaling etc, but the current compose support limits the service. In its current state running a single app baked by state store and outgoing bindings might suffice. But ACI has greater compose support making more scenarios possible.
+
+WiP - see issues for status
 
 ### Azure Web Apps for Containers
 
