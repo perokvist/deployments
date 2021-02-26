@@ -5,13 +5,13 @@ A collection of github action utils
 
 Exprimental compose files for single app use of dapr.
 
->There is two options, web apps (for containers) and continer instances (ACI). Web Apps of course would be more attractive for web workload with auto-scaling etc, but the current compose support limits the service. In its current state running a single app baked by state store and outgoing bindings might suffice. But ACI has greater compose support making more scenarios possible.
+>There is two options, web apps (for containers) and continer instances (ACI). Web Apps of course would be more attractive for web workloads with auto-scaling etc, but the current compose support limits the service. In its current state running a single app baked by state store and outgoing bindings might suffice. But ACI has greater compose support making more scenarios possible.
 
 WiP - see issues for status
 
 ### Azure Web Apps for Containers
 
-The docker-compose file in the "dapr" folder could be used with the "azure/webapps-deploy@v2" github action. The ENV variables set in the github action seems to not be in context. The app configuration settings sould be in scope.
+The [docker-compose](dapr/web_app_azure.yml) file in the "dapr" folder could be used with the "azure/webapps-deploy@v2" github action. This is the same compose file as for [local](dapr/web_app_local.yml), but with an Azure file share.  The ENV variables set in the github action seems to not be in context. The (white listed )app configuration settings sould be in scope.
 
 #### Options
 

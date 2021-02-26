@@ -13,23 +13,14 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-      env:
-        IMAGE_NAME: 'fiffi/rps.web:latest'
-        DOCKER_REGISTRY: 'ghcr.io/perokvist'
-        STORAGE_ACCOUNT_NAME: 'daprweb'
 
     - uses: azure/webapps-deploy@v2 #https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action
       with:
         app-name: 'rps-web'
-        configuration-file: 'dapr/docker-compose.yml'
+        configuration-file: 'dapr/web_app_azure.yml'
         images: | 
           'ghcr.io/perokvist/fiffi/rps.web:latest' 
           'daprio/daprd:edge'
-      env:
-        IMAGE_NAME: 'fiffi/rps.web:latest'
-        DOCKER_REGISTRY: 'ghcr.io/perokvist'
-        STORAGE_ACCOUNT_NAME: 'daprweb'
-        
     - name: Azure logout
       run: |
         az logout

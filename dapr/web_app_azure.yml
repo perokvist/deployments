@@ -1,12 +1,8 @@
 version: '3.4'
 
-# ${DOCKER_REGISTRY}
-# ${IMAGE_NAME}
-# ${STORAGE_ACCOUNT_NAME}
-
 services:
   app:
-    image: ghcr.io/perokvist/fiffi/rps.web:65  #${DOCKER_REGISTRY}/${IMAGE_NAME}
+    image: ghcr.io/perokvist/fiffi/rps.web:latest
     environment:
       - APPINSIGHTS_INSTRUMENTATIONKEY
       - FIFFI-DAPR=true
@@ -21,6 +17,7 @@ services:
      "-app-id", "app",
      #"-app-port", "80",
      #"-config", "/mount/config/collector_config.yaml",
+     "-dapr-grpc-port", "50001",
      "-components-path", "/mount/components",
      "-placement-host-address", "placement:50006" # Dapr's placement service can be reach via the docker DNS entry
      ]
