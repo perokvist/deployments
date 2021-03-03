@@ -11,6 +11,8 @@ services:
         - APPINSIGHTS_INSTRUMENTATIONKEY
     ports:
       - "50001:50001" # Dapr instances communicate over gRPC so we need to expose the gRPC port
+    networks:
+      - hello-dapr
   dapr:
     image: "daprio/daprd:edge"
     command: [
@@ -38,10 +40,13 @@ services:
     command: ["./placement", "-port", "50006"]
     ports:
       - "50006:50006"
-    network_mode: "service:app"
+    networks:
+      - hello-dapr
 volumes:
   mydata:
     driver: azure_file
     driver_opts:
       share_name: dapr
       storage_account_name: ${STORAGE_ACCOUNT_NAME}
+networks:
+    hello-dapr:
