@@ -2,9 +2,9 @@ version: '3.4'
 
 services:
   app:
-    image: ghcr.io/perokvist/fiffi/rps.web:v65
+    image: ghcr.io/perokvist/fiffi/rps.web:v66
     environment: 
-      - FIFFI-DAPR=true
+      - FIFFI_DAPR=true
       - DAPR_GRPC_ENDPOINT=http://dapr:50001
       - DAPR_GRPC_PORT=50001
     ports:

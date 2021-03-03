@@ -5,9 +5,9 @@ services:
     image: ghcr.io/perokvist/fiffi/rps.web:latest
     environment:
       - APPINSIGHTS_INSTRUMENTATIONKEY
-      - FIFFI-DAPR=true
-      - DAPR_GRPC_ENDPOINT=http://dapr:50001
-      - DAPR_GRPC_PORT=50001
+      - FIFFI_DAPR
+      - DAPR_GRPC_ENDPOINT
+      - DAPR_GRPC_PORT
     depends_on:
       - placement
   dapr:
