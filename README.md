@@ -60,4 +60,5 @@ Since the new [Logic Apps runtime](https://techcommunity.microsoft.com/t5/azure-
 - [Dapr Web Push Sample](https://github.com/perokvist/Dapr.WebPush)
 - [Dapr docs - self hosted with docker](https://v1-rc3.docs.dapr.io/operations/hosting/self-hosted/self-hosted-with-docker/#run-using-docker-compose)
 - [Units of deployment - a brief look into the future, guided by dapr](https://perokvist.github.io/event-driven-architecture/azure_containers.html)
+- [Mount azure file share to web app for linux containers with docker-compose](https://stackoverflow.com/questions/64287843/mount-azure-file-share-to-web-app-for-linux-containers-with-docker-compose)
 

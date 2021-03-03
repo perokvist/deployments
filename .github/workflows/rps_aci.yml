@@ -33,7 +33,7 @@ jobs:
           run: |
             cd dapr
             docker context use acicontext
-            docker-compose -f aci_azure.yml up
+            docker compose up
           env:
             IMAGE_NAME: 'fiffi/rps.web:latest'
             DOCKER_REGISTRY: 'ghcr.io/perokvist'

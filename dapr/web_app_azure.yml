@@ -3,11 +3,11 @@ version: '3.4'
 services:
   app:
     image: ghcr.io/perokvist/fiffi/rps.web:latest
-    environment:
-      - APPINSIGHTS_INSTRUMENTATIONKEY
-      - FIFFI_DAPR
-      - DAPR_GRPC_ENDPOINT
-      - DAPR_GRPC_PORT
+    #environment:
+      #- APPINSIGHTS_INSTRUMENTATIONKEY
+      #- FIFFI_DAPR
+      #- DAPR_GRPC_ENDPOINT
+      #- DAPR_GRPC_PORT
     depends_on:
       - placement
   dapr:
