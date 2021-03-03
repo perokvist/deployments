@@ -11,8 +11,6 @@ services:
         - APPINSIGHTS_INSTRUMENTATIONKEY
     ports:
       - "50001:50001" # Dapr instances communicate over gRPC so we need to expose the gRPC port
-    depends_on:
-      - placement
   dapr:
     image: "daprio/daprd:edge"
     command: [
