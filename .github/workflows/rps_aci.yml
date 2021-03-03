@@ -32,7 +32,8 @@ jobs:
         - name: "Compose Up"
           run: |
             cd dapr
-            docker-compose up --context acicontext
+            docker context use acicontext
+            docker-compose up
           env:
             IMAGE_NAME: 'fiffi/rps.web:latest'
             DOCKER_REGISTRY: 'ghcr.io/perokvist'
