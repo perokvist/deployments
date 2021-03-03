@@ -32,7 +32,7 @@ jobs:
         - name: "Compose Up"
           run: |
             cd dapr
-            docker context acicontext
+            docker context use acicontext
             docker compose up
           env:
             IMAGE_NAME: 'fiffi/rps.web:latest'
