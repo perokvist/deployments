@@ -35,13 +35,13 @@ services:
 #    volumes:
 #      - mydata:/mount
 #    network_mode: "service:app"
-  placement:
-    image: "daprio/dapr"
-    command: ["./placement", "-port", "50006"]
-    ports:
-      - "50006:50006"
-    networks:
-      - hello-dapr
+#  placement:
+#    image: "daprio/dapr"
+#    command: ["./placement", "-port", "50006"]
+#    ports:
+#      - "50006:50006"
+#    networks:
+#      - hello-dapr
 volumes:
   mydata:
     driver: azure_file
