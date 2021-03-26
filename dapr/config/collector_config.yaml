@@ -1,8 +1,11 @@
 apiVersion: dapr.io/v1alpha1
 kind: Configuration
 metadata:
-  name: appconfig
-  namespace: default
+  name: tracing
 spec:
   tracing:
     samplingRate: "1"
+    # new section to include Zipkin configurations. Currently we only need endpoint
+    # but going forward we may consider things like API key as well.
+    zipkin:
+      endpointAddress: "https://zipkin.default.svc.cluster.local:9411/api/v2/spans"
